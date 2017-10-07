@@ -72,7 +72,7 @@ define(["jquery", "qlik", "./scripts/vis-fix2628.min", "css!./styles/vis.min.css
                             items:{
 
                                         						ColorA: {
-                                                        label:"Button Color",
+                                                        label:"Color Css",
                             					                ref: "Buttoncolor",
                             					                type: "object",
                             					                component: "color-picker",
@@ -497,7 +497,16 @@ define(["jquery", "qlik", "./scripts/vis-fix2628.min", "css!./styles/vis.min.css
             },
             paint: function ($element, layout) {
 
+console.log(layout.Buttoncolor.color);
+var color="black";
+$("<style>")
+    .prop("type", "text/css")
+    .html("\
+.vis-item.color-a {\
+background-color: "+layout.Buttoncolor.color+";\
+}")
 
+    .appendTo("head");
                 if (layout.itemOverflow) {
                     $("<style>")
                         .prop("type", "text/css")
@@ -710,8 +719,7 @@ define(["jquery", "qlik", "./scripts/vis-fix2628.min", "css!./styles/vis.min.css
             }
         }
 
-   $('.vis-item.color-a').css('background-color','black');
-   $(".vis-item.color-a").css("cssText", "background-color:black !important;");
+
     });
 
 function isTextCellNotEmpty(c) {
