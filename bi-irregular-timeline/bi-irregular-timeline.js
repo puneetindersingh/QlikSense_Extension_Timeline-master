@@ -70,7 +70,44 @@ define(["jquery", "qlik", "./scripts/vis-fix2628.min", "css!./styles/vis.min.css
                             type:"items",
                             label:"Colour Picker",
                             items:{
-
+                              Css: {
+                            type: "string",
+                            component: "dropdown",
+                            label: "Css Group",
+                            ref: "Variable",
+                            options: [{
+                                label: "1",
+                                value: "A"
+                        }, {
+                                label: "2",
+                                value: "B"
+                        }, {
+                                label: "3",
+                                value: "C"
+                        }, {
+                                label: "4",
+                                value: "D"
+                        }, {
+                                label: "5",
+                                value: "E"
+                        }, {
+                                label: "6",
+                                value: "F"
+                        }, {
+                                label: "7",
+                                value: "G"
+                        }, {
+                                label: "8",
+                                value: "H"
+                        }, {
+                                label: "9",
+                                value: "I"
+                        }, {
+                                label: "10",
+                                value: "J"
+                        }],
+                            defaultValue: "A"
+                        },
                                         						ColorA: {
                                                         label:"Color Css",
                             					                ref: "Buttoncolor",
@@ -498,7 +535,9 @@ define(["jquery", "qlik", "./scripts/vis-fix2628.min", "css!./styles/vis.min.css
             paint: function ($element, layout) {
 
 console.log(layout.Buttoncolor.color);
-var color="black";
+var color=layout.Buttoncolor.color;
+var selected_css;
+
 $("<style>")
     .prop("type", "text/css")
     .html("\
