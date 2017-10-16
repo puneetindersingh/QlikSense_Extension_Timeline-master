@@ -533,16 +533,55 @@ define(["jquery", "qlik", "./scripts/vis-fix2628.min", "css!./styles/vis.min.css
                 canTakeSnapshot: true
             },
             paint: function ($element, layout) {
-
+console.log(layout.Variable);
 console.log(layout.Buttoncolor.color);
 var color=layout.Buttoncolor.color;
 var selected_css;
-
+if(layout.Variable=="A")
+{
+  selected_css=".vis-item.color-a";
+}
+if(layout.Variable=="B")
+{
+  selected_css=".vis-item.color-b";
+}
+if(layout.Variable=="C")
+{
+  selected_css=".vis-item.color-c";
+}
+if(layout.Variable=="D")
+{
+  selected_css=".vis-item.color-d";
+}
+if(layout.Variable=="E")
+{
+  selected_css=".vis-item.color-e";
+}
+if(layout.Variable=="F")
+{
+  selected_css=".vis-item.color-f";
+}
+if(layout.Variable=="G")
+{
+  selected_css=".vis-item.color-g";
+}
+if(layout.Variable=="H")
+{
+  selected_css=".vis-item.color-h";
+}
+if(layout.Variable=="I")
+{
+  selected_css=".vis-item.color-i";
+}
+if(layout.Variable=="J")
+{
+  selected_css=".vis-item.color-j";
+}
 $("<style>")
     .prop("type", "text/css")
     .html("\
-.vis-item.color-a {\
-background-color: "+layout.Buttoncolor.color+";\
+"+selected_css+" {\
+background-color: "+color+";\
 }")
 
     .appendTo("head");
